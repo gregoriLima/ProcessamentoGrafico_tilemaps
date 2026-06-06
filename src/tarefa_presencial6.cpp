@@ -48,16 +48,16 @@ int g_gl_width  = 800;
 int g_gl_height = 400;
 GLFWwindow *g_window = NULL;
 
-// limites da area do mapa no espaco NDC
-// o mapa vai ocupar a tela inteira: de -1 a +1 em X e Y
-float xi = -1.0f; // borda esquerda
-float xf =  1.0f; // borda direita
-float yi = -1.0f; // borda de baixo
-float yf =  1.0f; // borda de cima
-float w  = xf - xi; // largura total = 2.0
-float h  = yf - yi; // altura total  = 2.0
+// limites da area do mapa em pixels
+// com ortho(0, 800, 0, 400) cada unidade do mundo = 1 pixel na tela
+float xi = 0.0f;            // borda esquerda (pixels)
+float xf = 800.0f;          // borda direita  (pixels)
+float yi = 0.0f;            // borda de baixo (pixels)
+float yf = 400.0f;          // borda de cima  (pixels)
+float w  = xf - xi;        // largura total = 800.0 pixels
+float h  = yf - yi;        // altura total  = 400.0 pixels
 
-// tamanho de um tile no espaco NDC
+// tamanho de um tile em pixels
 // tw: largura do tile  (calculado em main com base no numero de colunas)
 // th: altura do tile   (sempre tw/2 para manter proporcao 2:1)
 float tw = 0.0f;
@@ -91,8 +91,6 @@ struct KeyLatch {
     bool left  = false;
     bool right = false;
 };
-
-
 
 // mapa do jogo: cada valor e o id de um tile no tileset
 // linha 0 e a linha do topo da tela
@@ -285,8 +283,9 @@ void processMovementKey(int key, bool &wasPressed, int direction, int &col, int 
 // desenha um cubinho isometrico em cima do tile (col, row)
 // as tres faces recebem tons diferentes da cor escolhida para dar sensacao de 3D:
 //   topo = cor original, face esquerda = 60%, face direita = 40%
-void drawMarker(GLuint markerProgram, GLuint markerVAO, int col, int row, float red, float green, float blue) {
-    // descobre onde na tela este tile e desenhado
+// proj: matriz ortografica (pixels -> clip space), a mesma usada nos tiles
+void drawMarker(GLuint markerProgram, GLuint markerVAO, glm::mat4 proj, int col, int row, float red, float green, float blue) {
+    // descobre onde na tela este tile e desenhado (em pixels)
     float tileX = 0.0f;
     float tileY = 0.0f;
     tview.computeDrawPosition(col, row, tw, th, tileX, tileY);
@@ -294,7 +293,10 @@ void drawMarker(GLuint markerProgram, GLuint markerVAO, int col, int row, float 
     glUseProgram(markerProgram);
     glBindVertexArray(markerVAO);
 
-    // 'offset' desloca o cubinho para o centro do tile na tela
+    // envia a matriz de projecao para o shader do marcador
+    glUniformMatrix4fv(glGetUniformLocation(markerProgram, "proj"), 1, GL_FALSE, glm::value_ptr(proj));
+
+    // 'offset' desloca o cubinho para o centro do tile em pixels
     // sem isso o cubinho apareceria no canto inferior esquerdo do tile
     glUniform2f(glGetUniformLocation(markerProgram, "offset"), tileX + tw * 0.5f, tileY + th * 0.5f);
 
@@ -337,11 +339,12 @@ int main() {
     }
 
     // -------------------------------------------------------------------------
-    // Tamanho dos tiles
+    // Tamanho dos tiles em pixels
     //
-    // tw: divide a largura total do mundo pelo numero de colunas do mapa
-    //     ex: mapa 5 colunas -> tw = 2.0 / 5 = 0.4 (em NDC)
+    // tw: divide a largura da tela pelo numero de colunas do mapa
+    //     ex: mapa 3 colunas -> tw = 800 / 3 = 266.7 pixels
     // th: sempre metade de tw para manter a proporcao isometrica 2:1
+    //     ex: th = 266.7 / 2 = 133.3 pixels
     // -------------------------------------------------------------------------
     tw = w / (float)tmap->getWidth();
     th = tw / 2.0f;
@@ -374,30 +377,34 @@ int main() {
     // Shaders
     //
     // Shader do tile (tileProgram):
-    //   - vertex: recebe posicao local do vertice (0..tw, 0..th) e offset
-    //             do tile na tela (tx, ty); converte para NDC final
+    //   - vertex: recebe posicao local do vertice em pixels (0..tw, 0..th),
+    //             soma o offset do tile (tx, ty) e multiplica pela matriz proj
+    //             que converte pixels para clip space automaticamente
     //   - fragment: le o pixel certo do tileset usando as coordenadas UV
     //               ajustadas por offsetx/offsety (que selecionam o tile)
     //
     // Shader do marcador (markerProgram):
-    //   - vertex: recebe posicao local do cubinho e um offset 2D
+    //   - vertex: mesmo esquema, usa offset 2D em pixels e matriz proj
     //   - fragment: pinta com a cor uniforme recebida (sem textura)
+    //
+    // A matriz proj e criada com glm::ortho(0, 800, 0, 400):
+    //   - mapeia x=0 para a esquerda, x=800 para a direita
+    //   - mapeia y=0 para baixo,      y=400 para cima
+    //   - assim cada unidade = 1 pixel, sem precisar de formulas manuais
     // -------------------------------------------------------------------------
     const char *tileVertexShader =
         "#version 330 core\n"
-        "layout (location = 0) in vec2 vertex_position;\n" // posicao local do vertice no tile
-        "layout (location = 1) in vec2 texture_mapping;\n" // UV local (0..tileW, 0..tileH)
+        "layout (location = 0) in vec2 vertex_position;\n" // posicao local em pixels (0..tw, 0..th)
+        "layout (location = 1) in vec2 texture_mapping;\n" // UV local do tile
         "out vec2 texture_coords;\n"
-        "uniform float layer_z;\n" // profundidade do tile (para depth test)
-        "uniform float tx;\n"      // posicao X do tile na tela (NDC)
-        "uniform float ty;\n"      // posicao Y do tile na tela (NDC)
+        "uniform mat4 proj;\n"      // matriz ortografica: pixels -> clip space
+        "uniform float layer_z;\n"  // profundidade para depth test
+        "uniform float tx;\n"       // posicao X do tile na tela em pixels
+        "uniform float ty;\n"       // posicao Y do tile na tela em pixels
         "void main() {\n"
         "  texture_coords = texture_mapping;\n"
-        // converte Y de NDC [-1,1] para coordenada de tela:
-        // raw_y esta em [-1, 1] -> multiplica por 2 e soma 1 para ficar em [-1, 3]
-        // na pratica isso mapeia yi=-1 (baixo) para -1 e yf=1 (cima) para +1 em clip space
-        "  float raw_y = vertex_position.y + ty;\n"
-        "  gl_Position = vec4(vertex_position.x + tx, raw_y * 2.0 + 1.0, layer_z, 1.0);\n"
+        // soma a posicao local com o offset do tile e projeta para clip space
+        "  gl_Position = proj * vec4(vertex_position.x + tx, vertex_position.y + ty, layer_z, 1.0);\n"
         "}\n";
 
     const char *tileFragmentShader =
@@ -408,7 +415,7 @@ int main() {
         "uniform float offsety;\n" // deslocamento UV vertical   para selecionar o tile certo
         "out vec4 frag_color;\n"
         "void main() {\n"
-        // soma o offset local (0..tileW) com o offset do tile no tileset
+        // soma o UV local com o offset do tile no tileset para buscar o pixel certo
         "  vec4 texel = texture(sprite, vec2(texture_coords.x + offsetx, texture_coords.y + offsety));\n"
         // descarta pixels transparentes (bordas do tile no tileset)
         "  if (texel.a < 0.1) {\n"
@@ -420,10 +427,10 @@ int main() {
     const char *markerVertexShader =
         "#version 330 core\n"
         "layout (location = 0) in vec2 vertex_position;\n"
-        "uniform vec2 offset;\n" // centro do tile na tela (onde o cubinho vai aparecer)
+        "uniform mat4 proj;\n"    // matriz ortografica: pixels -> clip space
+        "uniform vec2 offset;\n"  // centro do tile em pixels (onde o cubinho aparece)
         "void main() {\n"
-        "  float raw_y = vertex_position.y + offset.y;\n"
-        "  gl_Position = vec4(vertex_position.x + offset.x, raw_y * 2.0 + 1.0, 0.1, 1.0);\n"
+        "  gl_Position = proj * vec4(vertex_position.x + offset.x, vertex_position.y + offset.y, 0.1, 1.0);\n"
         "}\n";
 
     const char *markerFragmentShader =
@@ -449,13 +456,7 @@ int main() {
     // -------------------------------------------------------------------------
     // Geometria do tile (losango)
     //
-    // O tile e um losango com 4 vertices:
-    //
-    //        [0] topo
-    //       /        \
-    //   [3] esq    [1] dir       <- coordenadas locais, origem no canto inf-esq
-    //       \        /
-    //        [2] base
+    // O tile eh um losango com 4 vertices:
     //
     // Cada vertice tem: posicao XY local  +  coordenada UV no tileset
     //
@@ -503,12 +504,6 @@ int main() {
     // Geometria do marcador (cubinho isometrico)
     //
     // 7 pontos formam o cubo visto de cima e de frente:
-    //
-    //        [0] ponta cima
-    //       /              \
-    //    [3]                [1]      <- topo (losango)
-    //       \              /
-    //    [5]  [4] base    [6]        <- base das faces laterais
     //
     // 3 faces, cada uma com 2 triangulos:
     //   topo:         [0,1,2] e [0,2,3]
@@ -594,11 +589,18 @@ int main() {
         // Percorre cada celula da grade e desenha o tile correspondente.
         // A ordem de baixo para cima (r crescente) garante que tiles mais
         // ao fundo sejam desenhados primeiro (painter's algorithm natural).
+
+        // matriz ortografica: mapeia pixels (0..800, 0..400) para clip space (-1..1)
+        // com isso cada unidade enviada ao shader = 1 pixel na tela
+        glm::mat4 proj = glm::ortho(0.0f, (float)g_gl_width, 0.0f, (float)g_gl_height, -1.0f, 1.0f);
+
         glUseProgram(tileProgram);
         glBindVertexArray(tileVAO);
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, tmap->getTileSet());
         glUniform1i(glGetUniformLocation(tileProgram, "sprite"), 0);
+        // envia a matriz de projecao uma unica vez para todos os tiles
+        glUniformMatrix4fv(glGetUniformLocation(tileProgram, "proj"), 1, GL_FALSE, glm::value_ptr(proj));
 
         for (int r = 0; r < tmap->getHeight(); r++) {
             for (int c = 0; c < tmap->getWidth(); c++) {
@@ -629,7 +631,7 @@ int main() {
         // Desabilitamos o depth test para o cubinho aparecer sempre
         // em cima dos tiles, independente da profundidade calculada
         glDisable(GL_DEPTH_TEST);
-        drawMarker(markerProgram, markerVAO, cursor_c, cursor_r, 0.0f, 0.6f, 1.0f); // azul
+        drawMarker(markerProgram, markerVAO, proj, cursor_c, cursor_r, 0.0f, 0.6f, 1.0f); // azul
         glEnable(GL_DEPTH_TEST);
 
         glfwSwapBuffers(g_window); // exibe o frame renderizado
