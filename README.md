@@ -4,7 +4,7 @@ Este projeto contem a atividade vivencial 2, um jogo 2D simples em OpenGL com pe
 
 ## Arquivo principal
 
-- `src/atividade_vivencial_2.cpp`: jogo com personagem, camadas `sky`, `clouds`, `mountains` e `pixelWall`.
+- `src/atividade_presencial6.cpp`: jogo com personagem, camadas `sky`, `clouds`, `mountains` e `pixelWall`.
 
 ## Dependencias locais
 
@@ -18,7 +18,7 @@ Este projeto contem a atividade vivencial 2, um jogo 2D simples em OpenGL com pe
 No PowerShell, entre na pasta `build` e execute:
 
 ```powershell
-cmake --build . --target atividade_vivencial_2
+cmake --build . --target atividade_presencial6
 ```
 
 ## Como executar
@@ -26,7 +26,7 @@ cmake --build . --target atividade_vivencial_2
 Ainda na pasta `build`, execute:
 
 ```powershell
-.\atividade_vivencial_2.exe
+.\atividade_presencial6.exe
 ```
 
 O executavel deve ser iniciado a partir da pasta `build` para que os arquivos em `..\assets\` sejam encontrados corretamente.

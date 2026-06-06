@@ -394,44 +394,29 @@ CMakeFiles/tarefa_presencial6.dir/src/tarefa_presencial6.cpp.obj: C:/Users/Greg/
   C:/msys64/ucrt64/include/_mingw_secapi.h \
   C:/msys64/ucrt64/include/_mingw_stat64.h \
   C:/msys64/ucrt64/include/_mingw_stdarg.h \
-  C:/msys64/ucrt64/include/_timeval.h \
   C:/msys64/ucrt64/include/assert.h \
   C:/msys64/ucrt64/include/c++/14.2.0/backward/binders.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bit \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/alloc_traits.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/allocator.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/bits/basic_ios.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/bits/basic_ios.tcc \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/basic_string.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/basic_string.tcc \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/char_traits.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/charconv.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/bits/codecvt.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/concept_check.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/cpp_type_traits.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/cxxabi_forced.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/bits/cxxabi_init_exception.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/exception.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/exception_defines.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/bits/exception_ptr.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/bits/fstream.tcc \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/functexcept.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/functional_hash.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/hash_bytes.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/invoke.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/bits/ios_base.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/bits/istream.tcc \
-  C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_classes.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_classes.tcc \
-  C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_facets.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_facets.tcc \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/localefwd.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/memory_resource.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/memoryfwd.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/move.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/bits/nested_exception.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/new_allocator.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/bits/ostream.tcc \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/ostream_insert.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/postypes.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/predefined_ops.h \
@@ -448,8 +433,6 @@ CMakeFiles/tarefa_presencial6.dir/src/tarefa_presencial6.cpp.obj: C:/Users/Greg/
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_iterator_base_funcs.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_iterator_base_types.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_pair.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/bits/streambuf.tcc \
-  C:/msys64/ucrt64/include/c++/14.2.0/bits/streambuf_iterator.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/string_view.tcc \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/stringfwd.h \
   C:/msys64/ucrt64/include/c++/14.2.0/bits/uses_allocator.h \
@@ -470,31 +453,21 @@ CMakeFiles/tarefa_presencial6.dir/src/tarefa_presencial6.cpp.obj: C:/Users/Greg/
   C:/msys64/ucrt64/include/c++/14.2.0/cstdlib \
   C:/msys64/ucrt64/include/c++/14.2.0/cstring \
   C:/msys64/ucrt64/include/c++/14.2.0/cwchar \
-  C:/msys64/ucrt64/include/c++/14.2.0/cwctype \
   C:/msys64/ucrt64/include/c++/14.2.0/debug/assertions.h \
   C:/msys64/ucrt64/include/c++/14.2.0/debug/debug.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/exception \
   C:/msys64/ucrt64/include/c++/14.2.0/ext/alloc_traits.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/ext/atomicity.h \
   C:/msys64/ucrt64/include/c++/14.2.0/ext/numeric_traits.h \
   C:/msys64/ucrt64/include/c++/14.2.0/ext/string_conversions.h \
   C:/msys64/ucrt64/include/c++/14.2.0/ext/type_traits.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/fstream \
   C:/msys64/ucrt64/include/c++/14.2.0/initializer_list \
-  C:/msys64/ucrt64/include/c++/14.2.0/ios \
   C:/msys64/ucrt64/include/c++/14.2.0/iosfwd \
-  C:/msys64/ucrt64/include/c++/14.2.0/istream \
   C:/msys64/ucrt64/include/c++/14.2.0/limits \
   C:/msys64/ucrt64/include/c++/14.2.0/math.h \
   C:/msys64/ucrt64/include/c++/14.2.0/new \
-  C:/msys64/ucrt64/include/c++/14.2.0/ostream \
   C:/msys64/ucrt64/include/c++/14.2.0/pstl/pstl_config.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/stdexcept \
   C:/msys64/ucrt64/include/c++/14.2.0/stdlib.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/streambuf \
   C:/msys64/ucrt64/include/c++/14.2.0/string \
   C:/msys64/ucrt64/include/c++/14.2.0/string_view \
-  C:/msys64/ucrt64/include/c++/14.2.0/system_error \
   C:/msys64/ucrt64/include/c++/14.2.0/tr1/bessel_function.tcc \
   C:/msys64/ucrt64/include/c++/14.2.0/tr1/beta_function.tcc \
   C:/msys64/ucrt64/include/c++/14.2.0/tr1/ell_integral.tcc \
@@ -509,22 +482,12 @@ CMakeFiles/tarefa_presencial6.dir/src/tarefa_presencial6.cpp.obj: C:/Users/Greg/
   C:/msys64/ucrt64/include/c++/14.2.0/tr1/special_function_util.h \
   C:/msys64/ucrt64/include/c++/14.2.0/tuple \
   C:/msys64/ucrt64/include/c++/14.2.0/type_traits \
-  C:/msys64/ucrt64/include/c++/14.2.0/typeinfo \
-  C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/basic_file.h \
   C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
   C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++config.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++io.h \
   C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++locale.h \
   C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/cpu_defines.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/ctype_base.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/ctype_inline.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/error_constants.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
-  C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/gthr.h \
   C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/os_defines.h \
   C:/msys64/ucrt64/include/corecrt.h \
-  C:/msys64/ucrt64/include/corecrt_startup.h \
   C:/msys64/ucrt64/include/corecrt_stdio_config.h \
   C:/msys64/ucrt64/include/corecrt_wstdlib.h \
   C:/msys64/ucrt64/include/crtdefs.h \
@@ -536,22 +499,13 @@ CMakeFiles/tarefa_presencial6.dir/src/tarefa_presencial6.cpp.obj: C:/Users/Greg/
   C:/msys64/ucrt64/include/locale.h \
   C:/msys64/ucrt64/include/malloc.h \
   C:/msys64/ucrt64/include/math.h \
-  C:/msys64/ucrt64/include/process.h \
   C:/msys64/ucrt64/include/psdk_inc/intrin-impl.h \
-  C:/msys64/ucrt64/include/pthread.h \
-  C:/msys64/ucrt64/include/pthread_compat.h \
-  C:/msys64/ucrt64/include/pthread_signal.h \
-  C:/msys64/ucrt64/include/pthread_time.h \
-  C:/msys64/ucrt64/include/pthread_unistd.h \
-  C:/msys64/ucrt64/include/sched.h \
   C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
   C:/msys64/ucrt64/include/sec_api/stdio_s.h \
   C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
   C:/msys64/ucrt64/include/sec_api/string_s.h \
-  C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
   C:/msys64/ucrt64/include/sec_api/wchar_s.h \
   C:/msys64/ucrt64/include/setjmp.h \
-  C:/msys64/ucrt64/include/signal.h \
   C:/msys64/ucrt64/include/stdarg.h \
   C:/msys64/ucrt64/include/stddef.h \
   C:/msys64/ucrt64/include/stdint.h \
@@ -559,12 +513,8 @@ CMakeFiles/tarefa_presencial6.dir/src/tarefa_presencial6.cpp.obj: C:/Users/Greg/
   C:/msys64/ucrt64/include/stdlib.h \
   C:/msys64/ucrt64/include/string.h \
   C:/msys64/ucrt64/include/swprintf.inl \
-  C:/msys64/ucrt64/include/sys/timeb.h \
-  C:/msys64/ucrt64/include/sys/types.h \
-  C:/msys64/ucrt64/include/time.h \
   C:/msys64/ucrt64/include/vadefs.h \
   C:/msys64/ucrt64/include/wchar.h \
-  C:/msys64/ucrt64/include/wctype.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/adxintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/ammintrin.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/amxbf16intrin.h \
@@ -682,13 +632,13 @@ CMakeFiles/tarefa_presencial6.dir/src/tarefa_presencial6.cpp.obj: C:/Users/Greg/
   C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/src/TilemapView.h
 
 
-C:/msys64/ucrt64/include/stdlib.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/new:
 
-C:/msys64/ucrt64/include/corecrt_wstdlib.h:
+C:/msys64/ucrt64/include/stdlib.h:
 
 C:/msys64/ucrt64/include/ole2.h:
+
+C:/msys64/ucrt64/include/corecrt_wstdlib.h:
 
 C:/msys64/ucrt64/include/winsvc.h:
 
@@ -696,15 +646,15 @@ C:/msys64/ucrt64/include/_mingw_off_t.h:
 
 C:/msys64/ucrt64/include/combaseapi.h:
 
-C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/common/glad.c:
-
 C:/msys64/ucrt64/include/swprintf.inl:
+
+C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/common/glad.c:
 
 C:/msys64/ucrt64/include/KHR/khrplatform.h:
 
-C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_mat3x2.hpp:
-
 C:/msys64/ucrt64/include/c++/14.2.0/concepts:
+
+C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_mat3x2.hpp:
 
 C:/msys64/ucrt64/include/consoleapi2.h:
 
@@ -718,25 +668,25 @@ C:/msys64/ucrt64/include/ioapiset.h:
 
 C:/msys64/ucrt64/include/bemapiset.h:
 
-C:/msys64/ucrt64/include/_bsd_types.h:
-
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_vec4.hpp:
 
 C:/msys64/ucrt64/include/utilapiset.h:
 
-C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/gtc/quaternion.inl:
+C:/msys64/ucrt64/include/_bsd_types.h:
 
-C:/msys64/ucrt64/include/commdlg.h:
+C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/gtc/quaternion.inl:
 
 C:/msys64/ucrt64/include/sdks/_mingw_ddk.h:
 
+C:/msys64/ucrt64/include/commdlg.h:
+
 C:/msys64/ucrt64/include/_mingw_secapi.h:
 
-C:/msys64/ucrt64/include/imm.h:
+C:/msys64/ucrt64/include/c++/14.2.0/ext/numeric_traits.h:
 
 C:/msys64/ucrt64/include/_mingw.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/ext/numeric_traits.h:
+C:/msys64/ucrt64/include/imm.h:
 
 C:/msys64/ucrt64/include/_mingw_mac.h:
 
@@ -744,9 +694,9 @@ C:/msys64/ucrt64/include/mmiscapi2.h:
 
 C:/msys64/ucrt64/include/mmiscapi.h:
 
-C:/msys64/ucrt64/include/concurrencysal.h:
-
 C:/msys64/ucrt64/include/string.h:
+
+C:/msys64/ucrt64/include/concurrencysal.h:
 
 C:/msys64/ucrt64/include/_mingw_stdarg.h:
 
@@ -762,21 +712,21 @@ C:/msys64/ucrt64/include/mmeapi.h:
 
 C:/msys64/ucrt64/include/_timeval.h:
 
-C:/msys64/ucrt64/include/consoleapi3.h:
-
 C:/msys64/ucrt64/include/apiset.h:
 
-C:/msys64/ucrt64/include/apisetcconv.h:
-
-C:/msys64/ucrt64/include/psdk_inc/_ip_mreq1.h:
+C:/msys64/ucrt64/include/consoleapi3.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/cstdlib:
 
+C:/msys64/ucrt64/include/psdk_inc/_ip_mreq1.h:
+
+C:/msys64/ucrt64/include/apisetcconv.h:
+
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/func_common.inl:
 
-C:/msys64/ucrt64/include/mcx.h:
-
 C:/msys64/ucrt64/include/malloc.h:
+
+C:/msys64/ucrt64/include/mcx.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/cpu_defines.h:
 
@@ -792,21 +742,21 @@ C:/msys64/ucrt64/include/cderr.h:
 
 C:/msys64/ucrt64/include/corecrt.h:
 
-C:/msys64/ucrt64/include/cguid.h:
-
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/bmiintrin.h:
+
+C:/msys64/ucrt64/include/cguid.h:
 
 C:/msys64/ucrt64/include/consoleapi.h:
 
-C:/msys64/ucrt64/include/corecrt_stdio_config.h:
+C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_function.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/wmmintrin.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_function.h:
-
-C:/msys64/ucrt64/include/ktmtypes.h:
+C:/msys64/ucrt64/include/corecrt_stdio_config.h:
 
 C:/msys64/ucrt64/include/datetimeapi.h:
+
+C:/msys64/ucrt64/include/ktmtypes.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/keylockerintrin.h:
 
@@ -814,9 +764,9 @@ C:/msys64/ucrt64/include/crtdefs.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/debug/debug.h:
 
-C:/msys64/ucrt64/include/dde.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/bits/charconv.h:
+
+C:/msys64/ucrt64/include/dde.h:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_vec2.hpp:
 
@@ -842,15 +792,15 @@ C:/msys64/ucrt64/include/winperf.h:
 
 C:/msys64/ucrt64/include/minwindef.h:
 
-C:/msys64/ucrt64/include/fibersapi.h:
+C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/func_trigonometric_simd.inl:
+
+C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/mat4x2.hpp:
 
 C:/msys64/ucrt64/include/vadefs.h:
 
-C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/func_trigonometric_simd.inl:
+C:/msys64/ucrt64/include/fibersapi.h:
 
 C:/msys64/ucrt64/include/memoryapi.h:
-
-C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/mat4x2.hpp:
 
 C:/msys64/ucrt64/include/assert.h:
 
@@ -858,33 +808,29 @@ C:/msys64/ucrt64/include/fileapi.h:
 
 C:/msys64/ucrt64/include/fltwinerror.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/stdexcept:
-
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdint.h:
-
-C:/msys64/ucrt64/include/libloaderapi.h:
 
 C:/msys64/ucrt64/include/sec_api/string_s.h:
 
-C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/func_matrix.inl:
+C:/msys64/ucrt64/include/libloaderapi.h:
 
-C:/msys64/ucrt64/include/interlockedapi.h:
+C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/func_matrix.inl:
 
 C:/msys64/ucrt64/include/guiddef.h:
 
-C:/msys64/ucrt64/include/joystickapi.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/system_error:
+C:/msys64/ucrt64/include/interlockedapi.h:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_mat2x4.hpp:
 
+C:/msys64/ucrt64/include/joystickapi.h:
+
 C:/msys64/ucrt64/include/handleapi.h:
 
-C:/msys64/ucrt64/include/heapapi.h:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512fp16intrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512bf16vlintrin.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512fp16intrin.h:
+C:/msys64/ucrt64/include/heapapi.h:
 
 C:/msys64/ucrt64/include/inaddr.h:
 
@@ -894,27 +840,27 @@ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/limits.h:
 
 C:/msys64/ucrt64/include/lzexpand.h:
 
-C:/msys64/ucrt64/include/mciapi.h:
-
 C:/msys64/ucrt64/include/pshpack1.h:
+
+C:/msys64/ucrt64/include/mciapi.h:
 
 C:/msys64/ucrt64/include/minwinbase.h:
 
-C:/msys64/ucrt64/include/mmsyscom.h:
-
 C:/msys64/ucrt64/include/stddef.h:
+
+C:/msys64/ucrt64/include/mmsyscom.h:
 
 C:/msys64/ucrt64/include/mmsystem.h:
 
 C:/msys64/ucrt64/include/msxml.h:
 
-C:/msys64/ucrt64/include/namedpipeapi.h:
-
-C:/msys64/ucrt64/include/nb30.h:
+C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/vec4.hpp:
 
 C:/msys64/ucrt64/include/wincontypes.h:
 
-C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/vec4.hpp:
+C:/msys64/ucrt64/include/nb30.h:
+
+C:/msys64/ucrt64/include/namedpipeapi.h:
 
 C:/msys64/ucrt64/include/sec_api/stdlib_s.h:
 
@@ -926,17 +872,17 @@ C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/d
 
 C:/msys64/ucrt64/include/oaidl.h:
 
-C:/msys64/ucrt64/include/objbase.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/cwchar:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avxifmaintrin.h:
+C:/msys64/ucrt64/include/objbase.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/functexcept.h:
 
-C:/msys64/ucrt64/include/objidl.h:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avxifmaintrin.h:
 
 C:/msys64/ucrt64/include/wingdi.h:
+
+C:/msys64/ucrt64/include/objidl.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/vaesintrin.h:
 
@@ -948,11 +894,11 @@ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/emmintrin.h:
 
 C:/msys64/ucrt64/include/oleidl.h:
 
-C:/msys64/ucrt64/include/playsoundapi.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/tr1/bessel_function.tcc:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/char_traits.h:
+
+C:/msys64/ucrt64/include/playsoundapi.h:
 
 C:/msys64/ucrt64/include/poppack.h:
 
@@ -962,23 +908,23 @@ C:/msys64/ucrt64/include/processthreadsapi.h:
 
 C:/msys64/ucrt64/include/processtopologyapi.h:
 
-C:/msys64/ucrt64/include/profileapi.h:
-
 C:/msys64/ucrt64/include/rpcnsi.h:
+
+C:/msys64/ucrt64/include/profileapi.h:
 
 C:/msys64/ucrt64/include/propidl.h:
 
 C:/msys64/ucrt64/include/prsht.h:
 
-C:/msys64/ucrt64/include/psdk_inc/_fd_types.h:
-
 C:/msys64/ucrt64/include/rpcnsip.h:
+
+C:/msys64/ucrt64/include/psdk_inc/_fd_types.h:
 
 C:/msys64/ucrt64/include/psdk_inc/_ip_types.h:
 
-C:/msys64/ucrt64/include/psdk_inc/_socket_types.h:
-
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stddef.h:
+
+C:/msys64/ucrt64/include/psdk_inc/_socket_types.h:
 
 C:/msys64/ucrt64/include/psdk_inc/_wsa_errnos.h:
 
@@ -996,25 +942,23 @@ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/x86intrin.h:
 
 C:/msys64/ucrt64/include/pshpack4.h:
 
-C:/msys64/ucrt64/include/pshpack8.h:
-
 C:/msys64/ucrt64/include/wincon.h:
+
+C:/msys64/ucrt64/include/pshpack8.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/tr1/legendre_function.tcc:
 
-C:/msys64/ucrt64/include/realtimeapiset.h:
-
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/lzcntintrin.h:
 
-C:/msys64/ucrt64/include/reason.h:
+C:/msys64/ucrt64/include/realtimeapiset.h:
 
-C:/msys64/ucrt64/include/rpc.h:
+C:/msys64/ucrt64/include/reason.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/memoryfwd.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avxvnniint8intrin.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/cwctype:
+C:/msys64/ucrt64/include/rpc.h:
 
 C:/msys64/ucrt64/include/rpcasync.h:
 
@@ -1026,13 +970,11 @@ C:/msys64/ucrt64/include/rpcndr.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/float.h:
 
-C:/msys64/ucrt64/include/corecrt_startup.h:
-
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_vec.hpp:
 
-C:/msys64/ucrt64/include/rpcnterr.h:
-
 C:/msys64/ucrt64/include/winerror.h:
+
+C:/msys64/ucrt64/include/rpcnterr.h:
 
 C:/msys64/ucrt64/include/rpcsal.h:
 
@@ -1042,15 +984,15 @@ C:/msys64/ucrt64/include/sdkddkver.h:
 
 C:/msys64/ucrt64/include/sec_api/stdio_s.h:
 
-C:/msys64/ucrt64/include/sec_api/stralign_s.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/bits/hash_bytes.h:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_vec4_simd.inl:
 
-C:/msys64/ucrt64/include/securityappcontainer.h:
+C:/msys64/ucrt64/include/sec_api/stralign_s.h:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/exponential.hpp:
+
+C:/msys64/ucrt64/include/securityappcontainer.h:
 
 C:/msys64/ucrt64/include/securitybaseapi.h:
 
@@ -1068,23 +1010,23 @@ C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/s
 
 C:/msys64/ucrt64/include/stdint.h:
 
-C:/msys64/ucrt64/include/stdio.h:
-
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/immintrin.h:
+C:/msys64/ucrt64/include/c++/14.2.0/bits/range_access.h:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/func_geometric.hpp:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/range_access.h:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/immintrin.h:
 
-C:/msys64/ucrt64/include/stralign.h:
+C:/msys64/ucrt64/include/stdio.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/tr1/ell_integral.tcc:
 
-C:/msys64/ucrt64/include/stringapiset.h:
+C:/msys64/ucrt64/include/stralign.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/std_abs.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/waitpkgintrin.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/std_abs.h:
+C:/msys64/ucrt64/include/stringapiset.h:
 
 C:/msys64/ucrt64/include/synchapi.h:
 
@@ -1098,9 +1040,9 @@ C:/msys64/ucrt64/include/threadpoollegacyapiset.h:
 
 C:/msys64/ucrt64/include/timeapi.h:
 
-C:/msys64/ucrt64/include/timezoneapi.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/cstdint:
+
+C:/msys64/ucrt64/include/timezoneapi.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512vldqintrin.h:
 
@@ -1126,41 +1068,35 @@ C:/msys64/ucrt64/include/winbase.h:
 
 C:/msys64/ucrt64/include/wincrypt.h:
 
-C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/func_common.hpp:
-
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_mat3x3.inl:
+
+C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/func_common.hpp:
 
 C:/msys64/ucrt64/include/windef.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xsaveintrin.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/bits/basic_string.tcc:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/streambuf_iterator.h:
-
-C:/msys64/ucrt64/include/windows.h:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xsaveintrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/clzerointrin.h:
 
-C:/msys64/ucrt64/include/winefs.h:
+C:/msys64/ucrt64/include/windows.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/amxtileintrin.h:
 
+C:/msys64/ucrt64/include/winefs.h:
+
 C:/msys64/ucrt64/include/winioctl.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/exception_ptr.h:
-
-C:/msys64/ucrt64/include/winnetwk.h:
-
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/vpclmulqdqintrin.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/cstddef:
 
-C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/error_constants.h:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/vpclmulqdqintrin.h:
 
-C:/msys64/ucrt64/include/winnls.h:
+C:/msys64/ucrt64/include/winnetwk.h:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/integer.hpp:
+
+C:/msys64/ucrt64/include/winnls.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++locale.h:
 
@@ -1170,11 +1106,9 @@ C:/msys64/ucrt64/include/c++/14.2.0/bits/predefined_ops.h:
 
 C:/msys64/ucrt64/include/winreg.h:
 
-C:/msys64/ucrt64/include/pthread_signal.h:
+C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/mat2x4.hpp:
 
 C:/msys64/ucrt64/include/winscard.h:
-
-C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/mat2x4.hpp:
 
 C:/msys64/ucrt64/include/winsmcrd.h:
 
@@ -1192,9 +1126,9 @@ C:/msys64/ucrt64/include/winver.h:
 
 C:/msys64/ucrt64/include/wnnc.h:
 
-C:/msys64/ucrt64/include/wow64apiset.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/bits/stringfwd.h:
+
+C:/msys64/ucrt64/include/wow64apiset.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/bmi2intrin.h:
 
@@ -1210,31 +1144,31 @@ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/ammintrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/amxbf16intrin.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/amxcomplexintrin.h:
-
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/third_party/glfw/include/GLFW/glfw3.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/amxcomplexintrin.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/backward/binders.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/amxfp16intrin.h:
-
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/precision.hpp:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/amxint8intrin.h:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/amxfp16intrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdarg.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512vbmi2intrin.h:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/amxint8intrin.h:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/gtc/type_ptr.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512vbmi2intrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx2intrin.h:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/simd/geometric.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx5124fmapsintrin.h:
-
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/prfchiintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx5124fmapsintrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx5124vnniwintrin.h:
 
@@ -1242,33 +1176,33 @@ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512bf16intrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512bitalgintrin.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/pmmintrin.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/math.h:
-
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512bitalgvlintrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/popcntintrin.h:
 
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/pmmintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512bitalgvlintrin.h:
+
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512bwintrin.h:
-
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512cdintrin.h:
-
-C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_mat4x4.hpp:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/cxxabi_forced.h:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_mat.hpp:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512dqintrin.h:
+C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_mat4x4.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512cdintrin.h:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/func_trigonometric.hpp:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512erintrin.h:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512dqintrin.h:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/gtc/constants.inl:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/simd/common.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512erintrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512fintrin.h:
 
@@ -1292,29 +1226,27 @@ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512vbmiintrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512vbmivlintrin.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512vlbwintrin.h:
-
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/vector_relational.hpp:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512vlintrin.h:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512vlbwintrin.h:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/_vectorize.hpp:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/_fixes.hpp:
 
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512vlintrin.h:
+
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512vnniintrin.h:
-
-C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/gtc/type_ptr.inl:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/nested_exception.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_construct.h:
 
+C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/gtc/type_ptr.inl:
+
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512vnnivlintrin.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512vpopcntdqintrin.h:
-
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mwaitintrin.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avx512vpopcntdqintrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/sm4intrin.h:
 
@@ -1326,11 +1258,11 @@ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/avxvnniintrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/cetintrin.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/cldemoteintrin.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/cfloat:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_vec2.inl:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/cldemoteintrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/clflushoptintrin.h:
 
@@ -1340,13 +1272,9 @@ C:/msys64/ucrt64/include/locale.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/enqcmdintrin.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/f16cintrin.h:
-
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/fwd.hpp:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_facets.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/fstream:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/f16cintrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/fma4intrin.h:
 
@@ -1354,15 +1282,15 @@ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/fmaintrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/fxsrintrin.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/gfniintrin.h:
-
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/packing.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/gfniintrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/hresetintrin.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/ia32intrin.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/ext/string_conversions.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/ia32intrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/lwpintrin.h:
 
@@ -1374,37 +1302,35 @@ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mm_malloc.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mmintrin.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/movdirintrin.h:
-
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/glm.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/movdirintrin.h:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/gtc/matrix_transform.hpp:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mwaitxintrin.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/pconfigintrin.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/os_defines.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/pkuintrin.h:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/pconfigintrin.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++config.h:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_mat3x4.inl:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/prfchwintrin.h:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/pkuintrin.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/iosfwd:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/common.hpp:
 
-C:/msys64/ucrt64/include/c++/14.2.0/exception:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/prfchwintrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/rdseedintrin.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/rtmintrin.h:
-
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/simd/integer.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/rtmintrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/serializeintrin.h:
 
@@ -1430,27 +1356,27 @@ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/tsxldtrkintrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/uintrintrin.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/usermsrintrin.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/string:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/basic_string.h:
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/usermsrintrin.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/ext/alloc_traits.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/basic_string.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/wbnoinvdintrin.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_iterator.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/x86gprintrin.h:
-
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_mat4x4_simd.inl:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/x86gprintrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xmmintrin.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xopintrin.h:
-
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/trigonometric.hpp:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xopintrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xsavecintrin.h:
 
@@ -1458,17 +1384,15 @@ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xsaveoptintrin.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xsavesintrin.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_classes.h:
-
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xtestintrin.h:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/src/tarefa_presencial6.cpp:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/simd/exponential.h:
 
-C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/func_common_simd.inl:
-
 C:/msys64/ucrt64/include/c++/14.2.0/bits/exception.h:
+
+C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/func_common_simd.inl:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/func_exponential.hpp:
 
@@ -1494,13 +1418,11 @@ C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/d
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_mat4x4.inl:
 
-C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_vec1.hpp:
-
 C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++allocator.h:
 
-C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_vec1.inl:
+C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_vec1.hpp:
 
-C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/gthr-default.h:
+C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_vec1.inl:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/geometric.hpp:
 
@@ -1520,9 +1442,9 @@ C:/msys64/ucrt64/include/_mingw_stat64.h:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/func_integer.hpp:
 
-C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/gtc/matrix_transform.inl:
-
 C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_iterator_base_funcs.h:
+
+C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/gtc/matrix_transform.inl:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/func_integer_simd.inl:
 
@@ -1530,11 +1452,9 @@ C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/d
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/func_matrix_simd.inl:
 
-C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/func_packing.hpp:
-
-C:/msys64/ucrt64/include/c++/14.2.0/ext/atomicity.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/bits/new_allocator.h:
+
+C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/func_packing.hpp:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/func_packing.inl:
 
@@ -1547,8 +1467,6 @@ C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/d
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/setup.hpp:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_float.hpp:
-
-C:/msys64/ucrt64/include/pthread_compat.h:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_half.hpp:
 
@@ -1564,9 +1482,9 @@ C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/d
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_vec3.inl:
 
-C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_vec4.inl:
-
 C:/msys64/ucrt64/include/c++/14.2.0/tr1/gamma.tcc:
+
+C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/detail/type_vec4.inl:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/gtc/constants.hpp:
 
@@ -1584,13 +1502,9 @@ C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/m
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/matrix.hpp:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/cxxabi_init_exception.h:
-
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/vec2.hpp:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/include/glm/vec3.hpp:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_classes.tcc:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bit:
 
@@ -1598,39 +1512,19 @@ C:/msys64/ucrt64/include/c++/14.2.0/bits/alloc_traits.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/allocator.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/basic_ios.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_algobase.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/basic_ios.tcc:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/codecvt.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/uses_allocator.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/bits/concept_check.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/cpp_type_traits.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/tr1/riemann_zeta.tcc:
 
 C:/msys64/ucrt64/include/wchar.h:
 
+C:/msys64/ucrt64/include/c++/14.2.0/tr1/riemann_zeta.tcc:
+
 C:/msys64/ucrt64/include/c++/14.2.0/bits/functional_hash.h:
+
+C:/msys64/ucrt64/include/c++/14.2.0/bits/cpp_type_traits.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/exception_defines.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/fstream.tcc:
-
 C:/msys64/ucrt64/include/c++/14.2.0/bits/invoke.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/ios_base.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/istream.tcc:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_facets.tcc:
-
-C:/msys64/ucrt64/include/c++/14.2.0/bits/ostream_insert.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/localefwd.h:
 
@@ -1638,13 +1532,13 @@ C:/msys64/ucrt64/include/c++/14.2.0/bits/memory_resource.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/move.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/ostream.tcc:
+C:/msys64/ucrt64/include/c++/14.2.0/bits/ostream_insert.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/string_view.tcc:
+C:/msys64/ucrt64/include/math.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/limits:
 
-C:/msys64/ucrt64/include/math.h:
+C:/msys64/ucrt64/include/c++/14.2.0/bits/string_view.tcc:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/postypes.h:
 
@@ -1654,9 +1548,11 @@ C:/msys64/ucrt64/include/c++/14.2.0/bits/refwrap.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/requires_hosted.h:
 
+C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_algobase.h:
+
 C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_pair.h:
 
-C:/msys64/ucrt64/include/c++/14.2.0/bits/streambuf.tcc:
+C:/msys64/ucrt64/include/c++/14.2.0/bits/uses_allocator.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/bits/uses_allocator_args.h:
 
@@ -1684,21 +1580,9 @@ C:/msys64/ucrt64/include/c++/14.2.0/cstring:
 
 C:/msys64/ucrt64/include/c++/14.2.0/initializer_list:
 
-C:/msys64/ucrt64/include/c++/14.2.0/ios:
-
-C:/msys64/ucrt64/include/c++/14.2.0/istream:
-
-C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/atomic_word.h:
-
-C:/msys64/ucrt64/include/sys/timeb.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/ostream:
-
 C:/msys64/ucrt64/include/c++/14.2.0/pstl/pstl_config.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/stdlib.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/streambuf:
 
 C:/msys64/ucrt64/include/c++/14.2.0/tr1/beta_function.tcc:
 
@@ -1710,47 +1594,15 @@ C:/msys64/ucrt64/include/c++/14.2.0/tr1/poly_hermite.tcc:
 
 C:/msys64/ucrt64/include/c++/14.2.0/tr1/poly_laguerre.tcc:
 
-C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++io.h:
-
 C:/msys64/ucrt64/include/c++/14.2.0/tr1/special_function_util.h:
 
 C:/msys64/ucrt64/include/c++/14.2.0/tuple:
 
 C:/msys64/ucrt64/include/c++/14.2.0/type_traits:
 
-C:/msys64/ucrt64/include/c++/14.2.0/typeinfo:
-
-C:/msys64/ucrt64/include/pthread_unistd.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/basic_file.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/ctype_base.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/ctype_inline.h:
-
-C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/gthr.h:
-
 C:/msys64/ucrt64/include/intrin.h:
 
-C:/msys64/ucrt64/include/process.h:
-
-C:/msys64/ucrt64/include/pthread.h:
-
-C:/msys64/ucrt64/include/pthread_time.h:
-
-C:/msys64/ucrt64/include/sched.h:
-
-C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h:
-
 C:/msys64/ucrt64/include/setjmp.h:
-
-C:/msys64/ucrt64/include/signal.h:
-
-C:/msys64/ucrt64/include/sys/types.h:
-
-C:/msys64/ucrt64/include/time.h:
-
-C:/msys64/ucrt64/include/wctype.h:
 
 C:/Users/Greg/Documents/Faculdade\ CC/ProcessamentoGrafico_tilemap/src/DiamondView.h:
 

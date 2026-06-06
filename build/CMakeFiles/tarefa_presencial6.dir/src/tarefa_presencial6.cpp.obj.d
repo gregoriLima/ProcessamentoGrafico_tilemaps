@@ -84,54 +84,27 @@ CMakeFiles/tarefa_presencial6.dir/src/tarefa_presencial6.cpp.obj: \
  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/emmintrin.h \
  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xmmintrin.h \
  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mmintrin.h \
- C:/msys64/ucrt64/include/c++/14.2.0/fstream \
- C:/msys64/ucrt64/include/c++/14.2.0/istream \
- C:/msys64/ucrt64/include/c++/14.2.0/ios \
- C:/msys64/ucrt64/include/c++/14.2.0/iosfwd \
+ C:/msys64/ucrt64/include/c++/14.2.0/string \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/stringfwd.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/memoryfwd.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/char_traits.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/postypes.h \
  C:/msys64/ucrt64/include/c++/14.2.0/cwchar \
  C:/msys64/ucrt64/include/wchar.h \
  C:/msys64/ucrt64/include/_mingw_stat64.h \
  C:/msys64/ucrt64/include/sec_api/wchar_s.h \
- C:/msys64/ucrt64/include/c++/14.2.0/exception \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/exception.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/exception_ptr.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/cxxabi_init_exception.h \
- C:/msys64/ucrt64/include/c++/14.2.0/typeinfo \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/hash_bytes.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/allocator.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/new_allocator.h \
  C:/msys64/ucrt64/include/c++/14.2.0/new \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/nested_exception.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/char_traits.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/exception.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/localefwd.h \
  C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++locale.h \
  C:/msys64/ucrt64/include/c++/14.2.0/clocale \
  C:/msys64/ucrt64/include/locale.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/iosfwd \
  C:/msys64/ucrt64/include/c++/14.2.0/cctype \
  C:/msys64/ucrt64/include/ctype.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/ios_base.h \
- C:/msys64/ucrt64/include/c++/14.2.0/ext/atomicity.h \
- C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/gthr.h \
- C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/gthr-default.h \
- C:/msys64/ucrt64/include/pthread.h C:/msys64/ucrt64/include/sys/types.h \
- C:/msys64/ucrt64/include/process.h \
- C:/msys64/ucrt64/include/corecrt_startup.h \
- C:/msys64/ucrt64/include/signal.h \
- C:/msys64/ucrt64/include/pthread_signal.h \
- C:/msys64/ucrt64/include/time.h C:/msys64/ucrt64/include/sys/timeb.h \
- C:/msys64/ucrt64/include/sec_api/sys/timeb_s.h \
- C:/msys64/ucrt64/include/_timeval.h \
- C:/msys64/ucrt64/include/pthread_time.h \
- C:/msys64/ucrt64/include/pthread_compat.h \
- C:/msys64/ucrt64/include/sched.h \
- C:/msys64/ucrt64/include/pthread_unistd.h \
- C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/atomic_word.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_classes.h \
- C:/msys64/ucrt64/include/c++/14.2.0/string \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/allocator.h \
- C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/new_allocator.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/ostream_insert.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/cxxabi_forced.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_function.h \
@@ -146,6 +119,7 @@ CMakeFiles/tarefa_presencial6.dir/src/tarefa_presencial6.cpp.obj: \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_construct.h \
  C:/msys64/ucrt64/include/c++/14.2.0/string_view \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/functional_hash.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/hash_bytes.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/string_view.tcc \
  C:/msys64/ucrt64/include/c++/14.2.0/ext/string_conversions.h \
  C:/msys64/ucrt64/include/c++/14.2.0/cerrno \
@@ -156,28 +130,6 @@ CMakeFiles/tarefa_presencial6.dir/src/tarefa_presencial6.cpp.obj: \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/uses_allocator.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/uses_allocator_args.h \
  C:/msys64/ucrt64/include/c++/14.2.0/tuple \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_classes.tcc \
- C:/msys64/ucrt64/include/c++/14.2.0/system_error \
- C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/error_constants.h \
- C:/msys64/ucrt64/include/c++/14.2.0/stdexcept \
- C:/msys64/ucrt64/include/c++/14.2.0/streambuf \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/streambuf.tcc \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/basic_ios.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_facets.h \
- C:/msys64/ucrt64/include/c++/14.2.0/cwctype \
- C:/msys64/ucrt64/include/wctype.h \
- C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/ctype_base.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/streambuf_iterator.h \
- C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/ctype_inline.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/locale_facets.tcc \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/basic_ios.tcc \
- C:/msys64/ucrt64/include/c++/14.2.0/ostream \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/ostream.tcc \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/istream.tcc \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/codecvt.h \
- C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/basic_file.h \
- C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++io.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/fstream.tcc \
  C:/Users/Greg/DOCUME~1/FACULD~1/PROCES~2/include/glm/glm.hpp \
  C:/Users/Greg/DOCUME~1/FACULD~1/PROCES~2/include/glm/detail/_fixes.hpp \
  C:/msys64/ucrt64/include/c++/14.2.0/climits \

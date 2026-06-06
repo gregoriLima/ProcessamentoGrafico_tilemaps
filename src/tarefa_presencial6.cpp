@@ -1,3 +1,21 @@
+// =============================================================================
+// Tarefa Presencial 6 - Tilemap Isometrico Diamond
+//
+// Estrutura geral do arquivo:
+//   1. Variaveis globais (janela, dimensoes, tileset)
+//   2. Funcoes auxiliares (OpenGL, shader, textura, movimento)
+//   3. main(): monta o mapa, cria geometria na GPU e roda o loop
+//
+// O mapa e desenhado em projecao isometrica diamond:
+//   - tiles sao losangos com proporcao 2:1 (largura = 2x altura)
+//   - a posicao na tela de cada tile depende de sua coluna e linha na matriz
+//
+// Coordenadas do mundo: NDC (Normalized Device Coordinates)
+//   - eixo X vai de -1 (esquerda) a +1 (direita)
+//   - eixo Y vai de -1 (baixo)   a +1 (cima)
+//   - o vertex shader converte as posicoes locais de tile para NDC final
+// =============================================================================
+
 #include <cstdio>
 #include <cstring>
 
@@ -13,44 +31,60 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+// DiamondView: calcula onde cada tile deve ser desenhado na tela
+//              e como o cursor se move entre os tiles
+// TileMap:     armazena a grade de tiles (qual tile esta em cada celula)
 #include "DiamondView.h"
 #include "TileMap.h"
 
 using namespace std;
 
-// tamanho da janela
-int g_gl_width = 800;
+// -----------------------------------------------------------------------------
+// Variaveis globais
+// -----------------------------------------------------------------------------
+
+// dimensoes da janela em pixels
+int g_gl_width  = 800;
 int g_gl_height = 400;
 GLFWwindow *g_window = NULL;
 
-// limites do espaco que o mapa vai ocupar no NDC (-1 a 1)
-float xi = -1.0f;
-float xf = 1.0f;
-float yi = -1.0f;
-float yf = 1.0f;
-float w = xf - xi;
-float h = yf - yi;
+// limites da area do mapa no espaco NDC
+// o mapa vai ocupar a tela inteira: de -1 a +1 em X e Y
+float xi = -1.0f; // borda esquerda
+float xf =  1.0f; // borda direita
+float yi = -1.0f; // borda de baixo
+float yf =  1.0f; // borda de cima
+float w  = xf - xi; // largura total = 2.0
+float h  = yf - yi; // altura total  = 2.0
 
-// tamanho de cada tile no espaco do mundo
+// tamanho de um tile no espaco NDC
+// tw: largura do tile  (calculado em main com base no numero de colunas)
+// th: altura do tile   (sempre tw/2 para manter proporcao 2:1)
 float tw = 0.0f;
 float th = 0.0f;
 
-// o tileset tem 9 colunas e 9 linhas de tiles
+// o tileset e uma imagem dividida em grade de tiles
+// TILESET_COLS x TILESET_ROWS = total de tiles disponiveis
 const int TILESET_COLS = 9;
 const int TILESET_ROWS = 9;
 
-// fracao de UV que cada tile ocupa na textura
-float tileW  = 0.0f;
-float tileH  = 0.0f;
-float tileW2 = 0.0f;
-float tileH2 = 0.0f;
+// fracao do espaco UV que cada tile ocupa na textura
+// ex: com 9 colunas, cada tile ocupa 1/9 da largura da textura
+float tileW  = 0.0f; // largura de um tile em UV (0.0 a 1.0)
+float tileH  = 0.0f; // altura  de um tile em UV (0.0 a 1.0)
+float tileW2 = 0.0f; // metade de tileW (usado nos vertices do losango)
+float tileH2 = 0.0f; // metade de tileH (usado nos vertices do losango)
 
-// vista isometrica diamond e o mapa
+// tview: sabe as regras do mapa diamond (como desenhar e como navegar)
+// tmap:  a grade de tiles em si (qual tile esta em [col][row])
 DiamondView tview(xi, yi);
 TileMap *tmap = NULL;
 
-// guarda se cada tecla ja estava pressionada no frame anterior
-// serve pra mover so um passo por pressionamento
+// -----------------------------------------------------------------------------
+// KeyLatch: impede que segurar uma tecla mova o cursor multiplas vezes
+// guarda se a tecla JA estava pressionada no frame anterior
+// o movimento so acontece na transicao "nao pressionada -> pressionada"
+// -----------------------------------------------------------------------------
 struct KeyLatch {
     bool up    = false;
     bool down  = false;
@@ -58,7 +92,24 @@ struct KeyLatch {
     bool right = false;
 };
 
-// descobre a pasta onde o .cpp esta, usando o caminho do proprio arquivo
+
+
+// mapa do jogo: cada valor e o id de um tile no tileset
+// linha 0 e a linha do topo da tela
+const int MAP_COLS = 3;
+const int MAP_ROWS = 3;
+int map[MAP_ROWS][MAP_COLS] = {
+    { 1, 1, 1 },
+    { 1, 1, 1 },
+    { 1, 1, 1 },
+};
+
+// -----------------------------------------------------------------------------
+// Funcoes auxiliares
+// -----------------------------------------------------------------------------
+
+// retorna o caminho da pasta onde este arquivo .cpp esta salvo em disco
+// usado para montar caminhos de assets relativos ao codigo-fonte
 string sourceDirectory() {
     string filePath = __FILE__;
     const size_t separator = filePath.find_last_of("\\/");
@@ -68,18 +119,20 @@ string sourceDirectory() {
     return filePath.substr(0, separator + 1);
 }
 
-// monta o caminho completo de um asset relativo a pasta do codigo
+// junta a pasta do codigo com um caminho relativo
+// ex: sourceAssetPath("exemplo/terrain.png") -> "C:/projeto/src/exemplo/terrain.png"
 string sourceAssetPath(const char *relativePath) {
     return sourceDirectory() + relativePath;
 }
 
-// abre a janela e liga o OpenGL
+// inicializa GLFW e GLAD, cria a janela e ativa o contexto OpenGL
 bool initialiseOpenGL() {
     if (!glfwInit()) {
         printf("Falha ao inicializar GLFW.\n");
         return false;
     }
 
+    // pede OpenGL 3.3 no perfil core (sem funcoes legadas)
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -92,8 +145,9 @@ bool initialiseOpenGL() {
     }
 
     glfwMakeContextCurrent(g_window);
-    glfwSwapInterval(1);
+    glfwSwapInterval(1); // sincroniza com o monitor (vsync)
 
+    // GLAD carrega os ponteiros das funcoes do OpenGL
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
         printf("Falha ao inicializar GLAD.\n");
         glfwDestroyWindow(g_window);
@@ -105,7 +159,8 @@ bool initialiseOpenGL() {
     return true;
 }
 
-// compila um shader e devolve o id; se der erro mostra a mensagem
+// compila um shader (vertex ou fragment) a partir do codigo-fonte em texto
+// retorna o id do shader criado na GPU, ou 0 se falhou
 GLuint compileShader(GLenum shaderType, const char *shaderSource) {
     GLuint shader = glCreateShader(shaderType);
     glShaderSource(shader, 1, &shaderSource, NULL);
@@ -117,6 +172,7 @@ GLuint compileShader(GLenum shaderType, const char *shaderSource) {
         return shader;
     }
 
+    // se falhou, imprime o log de erro do compilador GLSL
     GLint logLength = 0;
     glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &logLength);
     string shaderLog(static_cast<size_t>(logLength), '\0');
@@ -126,7 +182,9 @@ GLuint compileShader(GLenum shaderType, const char *shaderSource) {
     return 0;
 }
 
-// junta vertex e fragment shader num programa e devolve o id
+// cria um programa OpenGL juntando vertex shader e fragment shader
+// o programa e o que roda na GPU quando chamamos glDrawElements
+// retorna o id do programa, ou 0 se falhou
 GLuint createProgram(const char *vertexShaderSource, const char *fragmentShaderSource) {
     GLuint vertexShader   = compileShader(GL_VERTEX_SHADER,   vertexShaderSource);
     GLuint fragmentShader = compileShader(GL_FRAGMENT_SHADER, fragmentShaderSource);
@@ -153,16 +211,19 @@ GLuint createProgram(const char *vertexShaderSource, const char *fragmentShaderS
         program = 0;
     }
 
+    // shaders individuais nao sao mais necessarios apos o link
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
     return program;
 }
 
-// carrega uma imagem do disco e manda ela pra GPU como textura
+// carrega uma imagem PNG/JPG do disco e envia para a GPU como textura 2D
+// retorna true em caso de sucesso; o id da textura fica em 'texture'
 bool loadTexture(GLuint &texture, const string &filename) {
     int imageWidth  = 0;
     int imageHeight = 0;
     int channels    = 0;
+    // stbi_load decodifica a imagem e devolve os pixels em memoria
     unsigned char *data = stbi_load(filename.c_str(), &imageWidth, &imageHeight, &channels, 0);
     if (data == NULL) {
         printf("Falha ao carregar textura: %s\n", filename.c_str());
@@ -171,29 +232,36 @@ bool loadTexture(GLuint &texture, const string &filename) {
 
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
+
+    // CLAMP_TO_EDGE: nas bordas nao repete a textura (evita artefatos)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    // LINEAR: suaviza quando a textura e ampliada ou reduzida
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
+    // detecta se a imagem tem canal alpha (PNG com transparencia = 4 canais)
     const GLenum format = channels == 4 ? GL_RGBA : GL_RGB;
     glTexImage2D(GL_TEXTURE_2D, 0, format, imageWidth, imageHeight, 0, format, GL_UNSIGNED_BYTE, data);
+    // mipmaps: versoes menores da textura para quando o tile aparece pequeno na tela
     glGenerateMipmap(GL_TEXTURE_2D);
-    stbi_image_free(data);
+    stbi_image_free(data); // pixels ja estao na GPU, libera da RAM
     return true;
 }
 
-// checa se uma posicao esta dentro dos limites do mapa
+// retorna true se (col, row) e uma posicao valida dentro dos limites do mapa
 bool isInsideMap(int col, int row) {
     return tmap != NULL
         && col >= 0 && col < tmap->getWidth()
         && row >= 0 && row < tmap->getHeight();
 }
 
-// tenta mover o cursor numa direcao; se sair do mapa nao faz nada
+// tenta mover o cursor na direcao pedida
+// se a nova posicao estiver fora do mapa, nao move e retorna false
 bool moveIfValid(int &col, int &row, int direction) {
     int nextCol = col;
     int nextRow = row;
+    // computeTileWalking aplica as regras diamond: qual celula fica em cada direcao
     tview.computeTileWalking(nextCol, nextRow, direction);
     if (!isInsideMap(nextCol, nextRow)) {
         return false;
@@ -203,82 +271,95 @@ bool moveIfValid(int &col, int &row, int direction) {
     return true;
 }
 
-// move somente quando a tecla acabou de ser pressionada, nao enquanto segura
+// processa uma tecla de movimento: so move quando a tecla acaba de ser pressionada
+// 'wasPressed' guarda o estado da tecla no frame anterior (vem do KeyLatch)
 void processMovementKey(int key, bool &wasPressed, int direction, int &col, int &row) {
     const bool isPressed = glfwGetKey(g_window, key) == GLFW_PRESS;
     if (isPressed && !wasPressed) {
+        // tecla acabou de ser pressionada neste frame: move o cursor
         moveIfValid(col, row, direction);
     }
-    wasPressed = isPressed;
+    wasPressed = isPressed; // atualiza para o proximo frame
 }
 
-// desenha um cubinho isometrico em cima de um tile para marcar a posicao atual
-// as tres faces tem brilhos diferentes pra parecer 3D
+// desenha um cubinho isometrico em cima do tile (col, row)
+// as tres faces recebem tons diferentes da cor escolhida para dar sensacao de 3D:
+//   topo = cor original, face esquerda = 60%, face direita = 40%
 void drawMarker(GLuint markerProgram, GLuint markerVAO, int col, int row, float red, float green, float blue) {
+    // descobre onde na tela este tile e desenhado
     float tileX = 0.0f;
     float tileY = 0.0f;
     tview.computeDrawPosition(col, row, tw, th, tileX, tileY);
 
     glUseProgram(markerProgram);
     glBindVertexArray(markerVAO);
-    // centraliza o cubo no meio do tile
+
+    // 'offset' desloca o cubinho para o centro do tile na tela
+    // sem isso o cubinho apareceria no canto inferior esquerdo do tile
     glUniform2f(glGetUniformLocation(markerProgram, "offset"), tileX + tw * 0.5f, tileY + th * 0.5f);
 
-    // topo: cor original
+    // desenha o topo (indices 0..5 no cubeIndices)
     glUniform4f(glGetUniformLocation(markerProgram, "color"), red, green, blue, 1.0f);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void*)0);
 
-    // face esquerda: mais escura
+    // desenha a face esquerda (indices 6..11)
     glUniform4f(glGetUniformLocation(markerProgram, "color"), red * 0.6f, green * 0.6f, blue * 0.6f, 1.0f);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void*)(6 * sizeof(unsigned int)));
 
-    // face direita: mais escura ainda
+    // desenha a face direita (indices 12..17)
     glUniform4f(glGetUniformLocation(markerProgram, "color"), red * 0.4f, green * 0.4f, blue * 0.4f, 1.0f);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, (void*)(12 * sizeof(unsigned int)));
 }
 
+// =============================================================================
+// main
+// =============================================================================
 int main() {
     if (!initialiseOpenGL()) {
         return 1;
     }
 
+    // depth test: tiles desenhados depois so aparecem se estiverem "na frente"
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
+
+    // blend: permite transparencia (pixels com alpha < 1 deixam ver o que esta atras)
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    // mapa hardcoded: cada numero e o id do tile no tileset
-    // linha 0 e a linha de cima da tela
-    const int MAP_COLS = 5;
-    const int MAP_ROWS = 5;
-    int mapData[MAP_ROWS][MAP_COLS] = {
-        {  1,  1,  4,  1,  1 },
-        {  4,  1,  4,  1,  4 },
-        {  1,  4,  0,  4,  1 },
-        {  4,  1,  4,  1,  4 },
-        {  1,  1,  4,  1,  1 },
-    };
-
-    // cria o TileMap e preenche com os dados do array
-    // invertemos a linha porque o eixo Y do OpenGL cresce pra cima,
-    // mas no array a linha 0 representa o topo da tela
+    // copia o mapa global (definido acima do main) para o TileMap
+    // TileMap usa Y crescendo para cima, por isso lemos de baixo para cima (MAP_ROWS - r - 1)
     tmap = new TileMap(MAP_COLS, MAP_ROWS, 0);
     for (int r = 0; r < MAP_ROWS; r++) {
         for (int c = 0; c < MAP_COLS; c++) {
-            tmap->setTile(c, MAP_ROWS - r - 1, (unsigned char)mapData[r][c]);
+            tmap->setTile(c, MAP_ROWS - r - 1, (unsigned char)map[r][c]);
         }
     }
 
-    // calcula o tamanho de cada tile com base no tamanho do mapa
+    // -------------------------------------------------------------------------
+    // Tamanho dos tiles
+    //
+    // tw: divide a largura total do mundo pelo numero de colunas do mapa
+    //     ex: mapa 5 colunas -> tw = 2.0 / 5 = 0.4 (em NDC)
+    // th: sempre metade de tw para manter a proporcao isometrica 2:1
+    // -------------------------------------------------------------------------
     tw = w / (float)tmap->getWidth();
-    th = tw / 2.0f; // proporcao isometrica 2:1
+    th = tw / 2.0f;
+
+    // fracao UV de cada tile na textura do tileset
+    // ex: 9 colunas -> tileW = 1/9 ~= 0.111
     tileW  = 1.0f / (float)TILESET_COLS;
     tileH  = 1.0f / (float)TILESET_ROWS;
-    tileW2 = tileW / 2.0f;
-    tileH2 = tileH / 2.0f;
+    tileW2 = tileW / 2.0f; // metade da largura UV (ponta central do losango)
+    tileH2 = tileH / 2.0f; // metade da altura UV  (ponta central do losango)
+
+    // informa ao DiamondView o tamanho do mapa para que ele calcule
+    // o offset horizontal que centraliza o losango de tiles na tela
     tview.setMapSize(tmap->getWidth(), tmap->getHeight());
 
-    // carrega o tileset
+    // -------------------------------------------------------------------------
+    // Carregamento do tileset
+    // -------------------------------------------------------------------------
     const string texturePath = sourceAssetPath("exemplo/terrain.png");
     GLuint tilesetTexture = 0;
     if (!loadTexture(tilesetTexture, texturePath)) {
@@ -287,19 +368,34 @@ int main() {
         glfwTerminate();
         return 1;
     }
-    tmap->setTid(tilesetTexture);
+    tmap->setTid(tilesetTexture); // associa a textura ao mapa
 
-    // shader do tilemap: posiciona o losango no lugar certo e mostra o tile da textura
+    // -------------------------------------------------------------------------
+    // Shaders
+    //
+    // Shader do tile (tileProgram):
+    //   - vertex: recebe posicao local do vertice (0..tw, 0..th) e offset
+    //             do tile na tela (tx, ty); converte para NDC final
+    //   - fragment: le o pixel certo do tileset usando as coordenadas UV
+    //               ajustadas por offsetx/offsety (que selecionam o tile)
+    //
+    // Shader do marcador (markerProgram):
+    //   - vertex: recebe posicao local do cubinho e um offset 2D
+    //   - fragment: pinta com a cor uniforme recebida (sem textura)
+    // -------------------------------------------------------------------------
     const char *tileVertexShader =
         "#version 330 core\n"
-        "layout (location = 0) in vec2 vertex_position;\n"
-        "layout (location = 1) in vec2 texture_mapping;\n"
+        "layout (location = 0) in vec2 vertex_position;\n" // posicao local do vertice no tile
+        "layout (location = 1) in vec2 texture_mapping;\n" // UV local (0..tileW, 0..tileH)
         "out vec2 texture_coords;\n"
-        "uniform float layer_z;\n"
-        "uniform float tx;\n"
-        "uniform float ty;\n"
+        "uniform float layer_z;\n" // profundidade do tile (para depth test)
+        "uniform float tx;\n"      // posicao X do tile na tela (NDC)
+        "uniform float ty;\n"      // posicao Y do tile na tela (NDC)
         "void main() {\n"
         "  texture_coords = texture_mapping;\n"
+        // converte Y de NDC [-1,1] para coordenada de tela:
+        // raw_y esta em [-1, 1] -> multiplica por 2 e soma 1 para ficar em [-1, 3]
+        // na pratica isso mapeia yi=-1 (baixo) para -1 e yf=1 (cima) para +1 em clip space
         "  float raw_y = vertex_position.y + ty;\n"
         "  gl_Position = vec4(vertex_position.x + tx, raw_y * 2.0 + 1.0, layer_z, 1.0);\n"
         "}\n";
@@ -308,22 +404,23 @@ int main() {
         "#version 330 core\n"
         "in vec2 texture_coords;\n"
         "uniform sampler2D sprite;\n"
-        "uniform float offsetx;\n"
-        "uniform float offsety;\n"
+        "uniform float offsetx;\n" // deslocamento UV horizontal para selecionar o tile certo
+        "uniform float offsety;\n" // deslocamento UV vertical   para selecionar o tile certo
         "out vec4 frag_color;\n"
         "void main() {\n"
+        // soma o offset local (0..tileW) com o offset do tile no tileset
         "  vec4 texel = texture(sprite, vec2(texture_coords.x + offsetx, texture_coords.y + offsety));\n"
+        // descarta pixels transparentes (bordas do tile no tileset)
         "  if (texel.a < 0.1) {\n"
         "    discard;\n"
         "  }\n"
         "  frag_color = texel;\n"
         "}\n";
 
-    // shader do marcador: posiciona e pinta com cor solida
     const char *markerVertexShader =
         "#version 330 core\n"
         "layout (location = 0) in vec2 vertex_position;\n"
-        "uniform vec2 offset;\n"
+        "uniform vec2 offset;\n" // centro do tile na tela (onde o cubinho vai aparecer)
         "void main() {\n"
         "  float raw_y = vertex_position.y + offset.y;\n"
         "  gl_Position = vec4(vertex_position.x + offset.x, raw_y * 2.0 + 1.0, 0.1, 1.0);\n"
@@ -331,7 +428,7 @@ int main() {
 
     const char *markerFragmentShader =
         "#version 330 core\n"
-        "uniform vec4 color;\n"
+        "uniform vec4 color;\n" // cor da face atual (passada a cada glDrawElements)
         "out vec4 frag_color;\n"
         "void main() {\n"
         "  frag_color = color;\n"
@@ -349,17 +446,36 @@ int main() {
         return 1;
     }
 
-    // forma de losango de cada tile (4 pontos: cima, direita, baixo, esquerda)
-    // cada vertice: posicao XY + coordenada UV pra textura
+    // -------------------------------------------------------------------------
+    // Geometria do tile (losango)
+    //
+    // O tile e um losango com 4 vertices:
+    //
+    //        [0] topo
+    //       /        \
+    //   [3] esq    [1] dir       <- coordenadas locais, origem no canto inf-esq
+    //       \        /
+    //        [2] base
+    //
+    // Cada vertice tem: posicao XY local  +  coordenada UV no tileset
+    //
+    // Os dois triangulos [0,1,3] e [3,1,2] formam o losango completo.
+    //
+    // As coordenadas UV locais vao de 0 ate tileW/tileH (fracao de um tile).
+    // O fragment shader some isso com o offsetx/offsety do tile escolhido
+    // para buscar o pixel certo dentro do tileset.
+    // -------------------------------------------------------------------------
     const float tileVertices[] = {
-        0.0f,      th * 0.5f, 0.0f,   tileH2,   // cima
-        tw * 0.5f, 0.0f,      tileW2, 0.0f,      // direita
-        tw,        th * 0.5f, tileW,  tileH2,    // baixo
-        tw * 0.5f, th,        tileW2, tileH,     // esquerda
+    //   pos X       pos Y       UV X    UV Y
+        0.0f,      th * 0.5f,   0.0f,   tileH2,  // [0] topo    (centro horizontal, meio da altura)
+        tw * 0.5f, 0.0f,        tileW2, 0.0f,    // [1] direita (meio da largura,    base)
+        tw,        th * 0.5f,   tileW,  tileH2,  // [2] base    (extremo direito,    meio da altura)
+        tw * 0.5f, th,          tileW2, tileH,   // [3] esquer. (meio da largura,    topo)
     };
-    // dois triangulos formam o losango
+    // dois triangulos: [0,1,3] e [3,1,2]
     const unsigned int tileIndices[] = { 0, 1, 3,  3, 1, 2 };
 
+    // VAO guarda a configuracao dos atributos; VBO guarda os vertices; EBO guarda os indices
     GLuint tileVAO = 0;
     GLuint tileVBO = 0;
     GLuint tileEBO = 0;
@@ -368,36 +484,53 @@ int main() {
     glGenBuffers(1, &tileEBO);
 
     glBindVertexArray(tileVAO);
+
     glBindBuffer(GL_ARRAY_BUFFER, tileVBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(tileVertices), tileVertices, GL_STATIC_DRAW);
+
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, tileEBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(tileIndices), tileIndices, GL_STATIC_DRAW);
-    // atributo 0: posicao xy (2 floats)
+
+    // atributo 0 (location=0 no shader): posicao XY — 2 floats, stride de 4 floats, offset 0
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
-    // atributo 1: coordenada uv (2 floats)
+
+    // atributo 1 (location=1 no shader): coordenada UV — 2 floats, stride de 4 floats, offset 2
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
-    // geometria do cubinho isometrico com 7 pontos
-    // topo e um losango; faces laterais descem pra dar volume
-    const float hs = tw * 0.25f; // meia largura do topo
-    const float vs = hs * 0.5f;  // meia altura do topo
-    const float ch = vs;          // altura das faces laterais
+    // -------------------------------------------------------------------------
+    // Geometria do marcador (cubinho isometrico)
+    //
+    // 7 pontos formam o cubo visto de cima e de frente:
+    //
+    //        [0] ponta cima
+    //       /              \
+    //    [3]                [1]      <- topo (losango)
+    //       \              /
+    //    [5]  [4] base    [6]        <- base das faces laterais
+    //
+    // 3 faces, cada uma com 2 triangulos:
+    //   topo:         [0,1,2] e [0,2,3]
+    //   face esquerda:[3,2,4] e [3,4,5]
+    //   face direita: [1,2,4] e [1,4,6]
+    // -------------------------------------------------------------------------
+    const float hs = tw * 0.25f; // meia largura do topo do cubo
+    const float vs = hs * 0.5f;  // meia altura do topo (proporcao 2:1)
+    const float ch = vs;          // altura das faces laterais (igual a vs)
     const float cubeVertices[] = {
-         0.0f,        vs,   // 0: ponta de cima
-         hs,        0.0f,   // 1: ponta direita
-         0.0f,       -vs,   // 2: ponta de baixo
-        -hs,        0.0f,   // 3: ponta esquerda
-         0.0f, -vs - ch,   // 4: base central
-        -hs,        -ch,   // 5: base esquerda
-         hs,        -ch,   // 6: base direita
+         0.0f,        vs,  // [0] ponta de cima
+         hs,        0.0f,  // [1] ponta direita
+         0.0f,       -vs,  // [2] ponta de baixo
+        -hs,        0.0f,  // [3] ponta esquerda
+         0.0f, -vs - ch,  // [4] base central (abaixo do centro do topo)
+        -hs,        -ch,  // [5] base esquerda
+         hs,        -ch,  // [6] base direita
     };
-    // topo + face esquerda + face direita, cada face = 2 triangulos
     const unsigned int cubeIndices[] = {
-        0, 1, 2,  0, 2, 3,   // topo
-        3, 2, 4,  3, 4, 5,   // face esquerda
-        1, 2, 4,  1, 4, 6,   // face direita
+        0, 1, 2,  0, 2, 3,   // topo        (6 indices = 2 triangulos)
+        3, 2, 4,  3, 4, 5,   // face esq.   (6 indices)
+        1, 2, 4,  1, 4, 6,   // face dir.   (6 indices)
     };
 
     GLuint markerVAO = 0;
@@ -412,33 +545,55 @@ int main() {
     glBufferData(GL_ARRAY_BUFFER, sizeof(cubeVertices), cubeVertices, GL_STATIC_DRAW);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, markerEBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(cubeIndices), cubeIndices, GL_STATIC_DRAW);
+    // so um atributo: posicao XY (2 floats, sem stride extra)
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
 
-    // posicao inicial do cursor no mapa
+    // -------------------------------------------------------------------------
+    // Estado inicial
+    // -------------------------------------------------------------------------
+
+    // posicao do cursor na grade do mapa (coluna, linha)
     int cursor_c = 0;
     int cursor_r = 0;
 
     KeyLatch keyLatch;
 
+    // =========================================================================
+    // Loop principal
+    // =========================================================================
     while (!glfwWindowShouldClose(g_window)) {
-        glfwPollEvents();
+        glfwPollEvents(); // processa eventos de teclado, mouse, janela
 
         if (glfwGetKey(g_window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
             glfwSetWindowShouldClose(g_window, 1);
         }
 
-        // movimento do cursor com as setas (4 direcoes por enquanto)
+        // ---------------------------------------------------------------------
+        // Entrada: movimento do cursor com as setas (4 direcoes por enquanto)
+        //
+        // As direcoes NORTH/SOUTH/EAST/WEST sao definidas pelo DiamondView:
+        //   NORTH: diminui coluna  (sobe-esquerda na tela)
+        //   SOUTH: aumenta coluna  (desce-direita na tela)
+        //   EAST:  diminui linha   (sobe-direita na tela)
+        //   WEST:  aumenta linha   (desce-esquerda na tela)
+        // ---------------------------------------------------------------------
         processMovementKey(GLFW_KEY_UP,    keyLatch.up,    DIRECTION_SOUTH, cursor_c, cursor_r);
         processMovementKey(GLFW_KEY_DOWN,  keyLatch.down,  DIRECTION_NORTH, cursor_c, cursor_r);
         processMovementKey(GLFW_KEY_LEFT,  keyLatch.left,  DIRECTION_WEST,  cursor_c, cursor_r);
         processMovementKey(GLFW_KEY_RIGHT, keyLatch.right, DIRECTION_EAST,  cursor_c, cursor_r);
 
+        // ---------------------------------------------------------------------
+        // Renderizacao
+        // ---------------------------------------------------------------------
         glViewport(0, 0, g_gl_width, g_gl_height);
         glClearColor(0.12f, 0.18f, 0.20f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        // desenha o mapa tile por tile
+        // --- Desenho do mapa -------------------------------------------------
+        // Percorre cada celula da grade e desenha o tile correspondente.
+        // A ordem de baixo para cima (r crescente) garante que tiles mais
+        // ao fundo sejam desenhados primeiro (painter's algorithm natural).
         glUseProgram(tileProgram);
         glBindVertexArray(tileVAO);
         glActiveTexture(GL_TEXTURE0);
@@ -447,35 +602,42 @@ int main() {
 
         for (int r = 0; r < tmap->getHeight(); r++) {
             for (int c = 0; c < tmap->getWidth(); c++) {
-                // descobre qual tile do tileset usar
+                // tileId: qual tile esta nesta celula
                 int tileId = tmap->getTile(c, r);
-                int u = tileId % TILESET_COLS; // coluna no tileset
-                int v = tileId / TILESET_COLS; // linha no tileset
 
-                // calcula a posicao na tela
+                // mapeia o id para linha e coluna dentro do tileset
+                // ex: id=10, TILESET_COLS=9 -> u=1, v=1 (segunda linha, segunda coluna)
+                int u = tileId % TILESET_COLS; // coluna no tileset
+                int v = tileId / TILESET_COLS; // linha   no tileset
+
+                // posicao na tela onde este tile deve ser desenhado
                 float tileX = 0.0f;
                 float tileY = 0.0f;
                 tview.computeDrawPosition(c, r, tw, th, tileX, tileY);
 
-                // envia pra GPU: offset UV do tile no tileset e posicao na tela
-                glUniform1f(glGetUniformLocation(tileProgram, "offsetx"), u * tileW);
-                glUniform1f(glGetUniformLocation(tileProgram, "offsety"), v * tileH);
-                glUniform1f(glGetUniformLocation(tileProgram, "tx"), tileX);
-                glUniform1f(glGetUniformLocation(tileProgram, "ty"), tileY);
+                // envia os uniforms para o shader
+                glUniform1f(glGetUniformLocation(tileProgram, "offsetx"), u * tileW); // deslocamento UV horizontal
+                glUniform1f(glGetUniformLocation(tileProgram, "offsety"), v * tileH); // deslocamento UV vertical
+                glUniform1f(glGetUniformLocation(tileProgram, "tx"), tileX);          // posicao X na tela
+                glUniform1f(glGetUniformLocation(tileProgram, "ty"), tileY);          // posicao Y na tela
                 glUniform1f(glGetUniformLocation(tileProgram, "layer_z"), tmap->getZ());
                 glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
             }
         }
 
-        // desliga o depth test pra o marcador aparecer sempre em cima do mapa
+        // --- Desenho do marcador ---------------------------------------------
+        // Desabilitamos o depth test para o cubinho aparecer sempre
+        // em cima dos tiles, independente da profundidade calculada
         glDisable(GL_DEPTH_TEST);
-        drawMarker(markerProgram, markerVAO, cursor_c, cursor_r, 0.0f, 0.6f, 1.0f);
+        drawMarker(markerProgram, markerVAO, cursor_c, cursor_r, 0.0f, 0.6f, 1.0f); // azul
         glEnable(GL_DEPTH_TEST);
 
-        glfwSwapBuffers(g_window);
+        glfwSwapBuffers(g_window); // exibe o frame renderizado
     }
 
-    // libera recursos
+    // -------------------------------------------------------------------------
+    // Liberacao de recursos
+    // -------------------------------------------------------------------------
     glDeleteVertexArrays(1, &tileVAO);
     glDeleteBuffers(1, &tileVBO);
     glDeleteBuffers(1, &tileEBO);
