@@ -29,6 +29,8 @@ Ainda na pasta `build`, execute:
 .\atividade_presencial6.exe
 ```
 
+O arquivo já está na pasta build
+
 O executavel deve ser iniciado a partir da pasta `build` para que os arquivos em `..\assets\` sejam encontrados corretamente.
 
 ## Controles
