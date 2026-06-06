@@ -84,20 +84,40 @@ CMakeFiles/tarefa_presencial6.dir/src/tarefa_presencial6.cpp.obj: \
  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/emmintrin.h \
  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/xmmintrin.h \
  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mmintrin.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/set \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_tree.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/allocator.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/new_allocator.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/new \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/exception.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/memoryfwd.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_function.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/backward/binders.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/ext/alloc_traits.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/alloc_traits.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_construct.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/ext/aligned_buffer.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/node_handle.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_set.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/initializer_list \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_multiset.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/range_access.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/erase_if.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/memory_resource.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/cstddef \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/uses_allocator.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/uses_allocator_args.h \
+ C:/msys64/ucrt64/include/c++/14.2.0/tuple \
+ C:/msys64/ucrt64/include/c++/14.2.0/bits/invoke.h \
  C:/msys64/ucrt64/include/c++/14.2.0/string \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/stringfwd.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/memoryfwd.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/char_traits.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/postypes.h \
  C:/msys64/ucrt64/include/c++/14.2.0/cwchar \
  C:/msys64/ucrt64/include/wchar.h \
  C:/msys64/ucrt64/include/_mingw_stat64.h \
  C:/msys64/ucrt64/include/sec_api/wchar_s.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/allocator.h \
- C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++allocator.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/new_allocator.h \
- C:/msys64/ucrt64/include/c++/14.2.0/new \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/exception.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/localefwd.h \
  C:/msys64/ucrt64/include/c++/14.2.0/x86_64-w64-mingw32/bits/c++locale.h \
  C:/msys64/ucrt64/include/c++/14.2.0/clocale \
@@ -107,16 +127,8 @@ CMakeFiles/tarefa_presencial6.dir/src/tarefa_presencial6.cpp.obj: \
  C:/msys64/ucrt64/include/ctype.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/ostream_insert.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/cxxabi_forced.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_function.h \
- C:/msys64/ucrt64/include/c++/14.2.0/backward/binders.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/refwrap.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/invoke.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/range_access.h \
- C:/msys64/ucrt64/include/c++/14.2.0/initializer_list \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/basic_string.h \
- C:/msys64/ucrt64/include/c++/14.2.0/ext/alloc_traits.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/alloc_traits.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/stl_construct.h \
  C:/msys64/ucrt64/include/c++/14.2.0/string_view \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/functional_hash.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/hash_bytes.h \
@@ -125,11 +137,6 @@ CMakeFiles/tarefa_presencial6.dir/src/tarefa_presencial6.cpp.obj: \
  C:/msys64/ucrt64/include/c++/14.2.0/cerrno \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/charconv.h \
  C:/msys64/ucrt64/include/c++/14.2.0/bits/basic_string.tcc \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/memory_resource.h \
- C:/msys64/ucrt64/include/c++/14.2.0/cstddef \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/uses_allocator.h \
- C:/msys64/ucrt64/include/c++/14.2.0/bits/uses_allocator_args.h \
- C:/msys64/ucrt64/include/c++/14.2.0/tuple \
  C:/Users/Greg/DOCUME~1/FACULD~1/PROCES~2/include/glm/glm.hpp \
  C:/Users/Greg/DOCUME~1/FACULD~1/PROCES~2/include/glm/detail/_fixes.hpp \
  C:/msys64/ucrt64/include/c++/14.2.0/climits \

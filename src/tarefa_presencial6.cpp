@@ -25,6 +25,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
+#include <set>
 #include <string>
 
 #include <glm/glm.hpp>
@@ -79,6 +80,8 @@ float tileH2 = 0.0f; // metade de tileH (usado nos vertices do losango)
 // tmap:  a grade de tiles em si (qual tile esta em [col][row])
 DiamondView tview(xi, yi);
 TileMap *tmap = NULL;
+
+set<pair<int,int>> g_visitedTiles;
 
 // -----------------------------------------------------------------------------
 // KeyLatch: impede que segurar uma tecla mova o cursor multiplas vezes
@@ -254,6 +257,14 @@ bool isInsideMap(int col, int row) {
         && row >= 0 && row < tmap->getHeight();
 }
 
+void addVisitedTiles(int col, int row) {
+    g_visitedTiles.insert({col, row});
+}
+
+bool isTileVisited(int col, int row) {
+    return g_visitedTiles.find({col, row}) != g_visitedTiles.end();
+}
+
 // tenta mover o cursor na direcao pedida
 // se a nova posicao estiver fora do mapa, nao move e retorna false
 bool moveIfValid(int &col, int &row, int direction) {
@@ -264,8 +275,22 @@ bool moveIfValid(int &col, int &row, int direction) {
     if (!isInsideMap(nextCol, nextRow)) {
         return false;
     }
+
+    // se o tile já foi visitado, nao permite mover o cursor para lá
+    if (isTileVisited(nextCol, nextRow)) {
+        return false;
+    }
+
     col = nextCol;
     row = nextRow;
+    printf("Cursor movido para: col=%d, row=%d\n", col, row);
+
+    // adicionando posição já visitada, para que não seja mais possível visitar o mesmo tile mais de uma vez
+    addVisitedTiles(col, row);
+
+    // Mudando o tile onde o cursor esta para id 81
+    tmap->setTile(col, row, 80);
+
     return true;
 }
 
