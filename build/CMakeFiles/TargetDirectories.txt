@@ -1,0 +1,9 @@
+C:/Users/Greg/Documents/Faculdade CC/ProcessamentoGrafico_tilemap/build/CMakeFiles/tarefa_presencial6.dir
+C:/Users/Greg/Documents/Faculdade CC/ProcessamentoGrafico_tilemap/build/CMakeFiles/edit_cache.dir
+C:/Users/Greg/Documents/Faculdade CC/ProcessamentoGrafico_tilemap/build/CMakeFiles/rebuild_cache.dir
+C:/Users/Greg/Documents/Faculdade CC/ProcessamentoGrafico_tilemap/build/third_party/glfw/CMakeFiles/edit_cache.dir
+C:/Users/Greg/Documents/Faculdade CC/ProcessamentoGrafico_tilemap/build/third_party/glfw/CMakeFiles/rebuild_cache.dir
+C:/Users/Greg/Documents/Faculdade CC/ProcessamentoGrafico_tilemap/build/third_party/glfw/src/CMakeFiles/glfw.dir
+C:/Users/Greg/Documents/Faculdade CC/ProcessamentoGrafico_tilemap/build/third_party/glfw/src/CMakeFiles/update_mappings.dir
+C:/Users/Greg/Documents/Faculdade CC/ProcessamentoGrafico_tilemap/build/third_party/glfw/src/CMakeFiles/edit_cache.dir
+C:/Users/Greg/Documents/Faculdade CC/ProcessamentoGrafico_tilemap/build/third_party/glfw/src/CMakeFiles/rebuild_cache.dir

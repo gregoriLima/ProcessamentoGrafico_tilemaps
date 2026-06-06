@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/Greg/Documents/Faculdade CC/ProcessamentoGrafico_tilemap/build/cmake_install.cmake",
+		"C:/Users/Greg/Documents/Faculdade CC/ProcessamentoGrafico_tilemap/build/third_party/glfw/cmake_install.cmake",
+		"C:/Users/Greg/Documents/Faculdade CC/ProcessamentoGrafico_tilemap/build/third_party/glfw/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
